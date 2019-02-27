@@ -1,0 +1,21 @@
+a{
+    color: chocolate;
+}
+
+body{
+    background-color: aliceblue;
+    color: black;
+    font-family: sans-serif;
+    border: 12px solid;
+}
+
+li:before{
+    content: '\1F95E';
+    margin-left: -20px;
+    margin-right: 10px;
+}
+
+h2{
+    alignment: center;
+    font-weight: bold;
+}

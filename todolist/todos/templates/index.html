@@ -1,0 +1,10 @@
+{% include 'Header-Footer/top.html' %}
+    <ul>
+    {% for todo in todos %}
+        <li><a href="/todos/details/{{ todo.id }}"> {{ todo.title }}</a></li>
+    {% endfor %}
+
+    </ul>
+{% include 'Header-Footer/bottom.html' %}
+
+
