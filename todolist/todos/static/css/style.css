@@ -1,21 +1,45 @@
-a{
-    color: chocolate;
-}
-
 body{
-    background-color: aliceblue;
-    color: black;
-    font-family: sans-serif;
-    border: 12px solid;
+    background-color: #41B3A3;
 }
 
-li:before{
-    content: '\1F95E';
-    margin-left: -20px;
+a{
+    color: black;
+}
+.todo-completed {
+    text-decoration: line-through;
+    background: rgba(149, 165, 166, .3);
+}
+.list-group-item-text{
+    color: darkslategrey;
+}
+.navbar-brand {
+    font-family: 'Permanent Marker', cursive;
+}
+.search-form{
+    margin-top: 7px;
+    float: right;
     margin-right: 10px;
 }
 
-h2{
-    alignment: center;
-    font-weight: bold;
+button{
+    float:right;
+    color: black;
+    background: darkgoldenrod;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    position: relative;
+
+}
+.style {
+    text-decoration-color: red;
+}
+.table-bordered{
+    background: #E3AFBC;
+}
+
+.jumbotron{
+    background-color: #ECF0F1;
+}
+.btn-primary{
+    
 }

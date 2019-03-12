@@ -1,10 +1,60 @@
 {% include 'Header-Footer/top.html' %}
-    <ul>
-    {% for todo in todos %}
-        <li><a href="/todos/details/{{ todo.id }}"> {{ todo.title }}</a></li>
-    {% endfor %}
 
-    </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+                <label for="title">Title</label><br />
+                <input type="text" name="title" id="title" />
+                <br>
+                <label for="text">Text</label><br/>
+                <textarea name="text" id="text"></textarea>
+                <br><br>
+                <input type="submit" value="Submit" />
+            </form>
+
+        </div>
+
+
+        <div class="col-sm-8">
+             <div class="table-responsive">
+                <table class="table table-bordered">
+
+
+
+                    {% for todo in todos %}
+                        {% if todo.complete == False %}
+                    <tr>
+                        <td>
+                            <a class="list-group-item-text" href="/todos/details/{{ todo.id }}">{{ todo.title }}</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'complete' id=todo.id %}" class="btn btn-success" id="{{ todo.id }}">complete</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'delete' id=todo.id %}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                        {% else %}
+                     <tr>
+                        <td>
+                            <a class="list-group-item-text" style="text-decoration: line-through" href="/todos/details/{{ todo.id }}">{{ todo.title }}</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'complete' id=todo.id %}" class="btn btn-primary" id="{{ todo.id }}">Incomplete</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'delete' id=todo.id %}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+                </div>
+        </div>
+    </div>
+
+</div>
+
 {% include 'Header-Footer/bottom.html' %}
-
-

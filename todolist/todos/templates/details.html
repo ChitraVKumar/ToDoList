@@ -1,6 +1,22 @@
 {% include 'Header-Footer/top.html' %}
-    <h1>{{ todo.title }}</h1>
-    <p>{{ todo.text }}</p>
-    <br>
-    Created on {{ todo.created_time }}
+<div class="container">
+<div class="jumbotron">
+    <div class="card w-75">
+  <div class="card-body">
+    <h2 class="card-title">{{ todo.title }}</h2>
+    <p class="card-text">{{ todo.text }}</p>
+    <a href="/todos" class="btn btn-primary">Go Back</a>
+    <div class="card-footer text-muted">
+        <br/>
+        Created on {{ todo.created_time }}
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+
 {% include 'Header-Footer/bottom.html' %}
+
+

@@ -1,10 +1,11 @@
 {% include 'Header-Footer/top.html' %}
+<div class="container">
 <form action="{% url 'add' %}" method="post">
     {% csrf_token %}
         <label for="title">Title</label><br />
         <input type="text" name="title" id="title" />
         <br>
-        <label for="text">Text</label<br/>
+        <label for="text">Text</label><br/>
         <textarea name="text" id="text"></textarea>
         <br><br>
         <input type="submit" value="Submit" />
@@ -12,5 +13,7 @@
 <br>
 
 <a href="/todos">Go Back</a>
+
+</div>
 
 {% include 'Header-Footer/bottom.html' %}

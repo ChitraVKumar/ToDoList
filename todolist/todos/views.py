@@ -1,9 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import Q
 from .models import Todo
 
 
 def index(request):
-    todos = Todo.objects.all()[:10]
+    query = request.GET.get('q', None)
+    todos = Todo.objects.all()
+    if query is not None:
+        todos = todos.filter(Q(title__icontains=query) | Q(text__icontains=query))
     context = {
         'todos': todos
     }
@@ -28,3 +32,18 @@ def add(request):
     else:
         return render(request, 'add.html')
 
+
+def delete(request, id=None):
+    todo = Todo.objects.get(id=id)
+    todo.delete()
+    return redirect("/todos")
+
+
+def complete(request, id):
+    todo = Todo.objects.get(pk=id)
+    if(todo.complete):
+        todo.complete = False
+    else:
+        todo.complete = True
+    todo.save()
+    return redirect('/todos')
